@@ -1,0 +1,36 @@
+<script>
+         // 将方法写到对象身上
+         function People(name, age, sex, sayHello) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            this.sayHello = function() {
+                console.log("我是" + this.name);
+            }
+        }
+        var xiaoming = new People();
+        var xiaohong = new People();
+        var xiaogang = new People();
+        
+        console.log(xiaoming.sayHello===xiaohong.sayHello);
+        // 将方法写到原型上
+        function People(name, age, sex, sayHello) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+            }
+        
+        
+        People.prototype.sayHello = function() {
+            console.log("你好,"+ "我是" + this.name + ",我今年" + this.age + "了。" );
+        }
+        People.prototype.grownUp = function () {
+            this.age++;
+        }
+        var xiaoming = new People("小明",12,"男");
+        var xiaohong = new People("小红",14,"女");
+
+        xiaoming.sayHello();
+        xiaohong.sayHello();
+
+    </script>
